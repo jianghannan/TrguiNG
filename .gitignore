@@ -8,3 +8,12 @@ tests/manual.torrent
 src/build
 .DS_Store
 *.mmdb
+
+# Build and coverage artifacts
+build
+coverage
+
+# Logs and env files
+*.log
+.env
+.env.*

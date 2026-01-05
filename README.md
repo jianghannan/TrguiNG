@@ -27,6 +27,7 @@ Some differentiating features:
 * Powerful torrent filtering options
 * Latest transmission features support: labels, bandwidth groups, sequential download
 * Dark and white theme
+* **多语言支持 / Multi-language support**: English and 简体中文 (Simplified Chinese), with automatic system language detection
 
 Planned:
 

@@ -1,45 +1,47 @@
 ---
 
-description: "Task list template for feature implementation"
+description: "功能实施任务清单模板 / Task list template for feature implementation"
 ---
 
-# Tasks: [FEATURE NAME]
+# 任务清单 / Tasks: [FEATURE NAME]
 
-**Input**: Design documents from `/specs/[###-feature-name]/`
-**Prerequisites**: plan.md (required), spec.md (required for user stories), research.md, data-model.md, contracts/
+**输入 / Input**: 来自 `/specs/[###-feature-name]/` 的设计文档 / Design documents from `/specs/[###-feature-name]/`
+**前置条件 / Prerequisites**: plan.md（必需 / required）, spec.md（用户故事必需 / required for user stories）, research.md, data-model.md, contracts/
 
-**Tests**: The examples below include test tasks. Tests are OPTIONAL - only include them if explicitly requested in the feature specification.
+**测试 / Tests**: 以下示例包含测试任务。测试是可选的——仅在功能规格中明确要求时包含。
+The examples below include test tasks. Tests are OPTIONAL - only include them if explicitly requested in the feature specification.
 
-**Organization**: Tasks are grouped by user story to enable independent implementation and testing of each story.
+**组织方式 / Organization**: 任务按用户故事分组，以便独立实施和测试每个故事。
+Tasks are grouped by user story to enable independent implementation and testing of each story.
 
-## Format: `[ID] [P?] [Story] Description`
+## 格式 / Format: `[ID] [P?] [Story] Description`
 
-- **[P]**: Can run in parallel (different files, no dependencies)
-- **[Story]**: Which user story this task belongs to (e.g., US1, US2, US3)
-- Include exact file paths in descriptions
+- **[P]**: 可并行运行（不同文件，无依赖）/ Can run in parallel (different files, no dependencies)
+- **[Story]**: 此任务属于哪个用户故事（例如 / e.g., US1, US2, US3）
+- 在描述中包含确切的文件路径 / Include exact file paths in descriptions
 
-## Path Conventions
+## 路径约定 / Path Conventions
 
-- **Single project**: `src/`, `tests/` at repository root
-- **Web app**: `backend/src/`, `frontend/src/`
-- **Mobile**: `api/src/`, `ios/src/` or `android/src/`
-- Paths shown below assume single project - adjust based on plan.md structure
+- **单项目 / Single project**: `src/`, `tests/` 位于仓库根目录 / at repository root
+- **Web 应用 / Web app**: `backend/src/`, `frontend/src/`
+- **移动应用 / Mobile**: `api/src/`, `ios/src/` or `android/src/`
+- 下面显示的路径假定为单项目——根据 plan.md 结构调整 / Paths shown below assume single project - adjust based on plan.md structure
 
-<!-- 
+<!--
   ============================================================================
   IMPORTANT: The tasks below are SAMPLE TASKS for illustration purposes only.
-  
+
   The /speckit.tasks command MUST replace these with actual tasks based on:
   - User stories from spec.md (with their priorities P1, P2, P3...)
   - Feature requirements from plan.md
   - Entities from data-model.md
   - Endpoints from contracts/
-  
+
   Tasks MUST be organized by user story so each story can be:
   - Implemented independently
   - Tested independently
   - Delivered as an MVP increment
-  
+
   DO NOT keep these sample tasks in the generated tasks.md file.
   ============================================================================
 -->
@@ -50,6 +52,7 @@ description: "Task list template for feature implementation"
 
 - [ ] T001 Create project structure per implementation plan
 - [ ] T002 Initialize [language] project with [framework] dependencies
+- [ ] T002A [P] Review all new dependencies for AGPL-3.0 license compatibility (see Constitution Principle IX)
 - [ ] T003 [P] Configure linting and formatting tools
 
 ---
@@ -68,6 +71,8 @@ Examples of foundational tasks (adjust based on your project):
 - [ ] T007 Create base models/entities that all stories depend on
 - [ ] T008 Configure error handling and logging infrastructure
 - [ ] T009 Setup environment configuration management
+- [ ] T009A [P] Verify dual-mode compatibility (native app + web interface) or document mode-specific scope
+- [ ] T009B [P] Setup cross-platform testing environment (Windows/Linux/macOS) or document platform limitations
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
@@ -150,11 +155,15 @@ Examples of foundational tasks (adjust based on your project):
 
 **Purpose**: Improvements that affect multiple user stories
 
-- [ ] TXXX [P] Documentation updates in docs/
+- [ ] TXXX [P] Documentation updates in docs/ (ensure bilingual: Chinese first, English second)
+- [ ] TXXX Update dependency licenses documentation (if new dependencies added)
 - [ ] TXXX Code cleanup and refactoring
-- [ ] TXXX Performance optimization across all stories
+- [ ] TXXX Performance optimization across all stories (verify no blocking operations, check large data handling)
 - [ ] TXXX [P] Additional unit tests (if requested) in tests/unit/
 - [ ] TXXX Security hardening
+- [ ] TXXX Verify dual-mode functionality (test in both native app and web interface)
+- [ ] TXXX Cross-platform validation (test on Windows/Linux/macOS or document limitations)
+- [ ] TXXX Theme compatibility check (verify dark/light mode rendering)
 - [ ] TXXX Run quickstart.md validation
 
 ---

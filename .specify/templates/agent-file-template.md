@@ -10,6 +10,7 @@
 - 兼容性：Windows/Linux/macOS 三平台；深浅色主题均需验证
 - 交付：按用户故事优先级增量迭代；Web 资源自包含（禁 CDN）
 - 版本：遵循语义化版本，变更需说明影响面
+- 文档：所有文档必须中英文双语（中文在前，英文在后）
 
 ## 活跃技术 / Active Technologies
 - TypeScript (React 18.x, Mantine UI)
