@@ -1,17 +1,17 @@
-# Feature Specification: [FEATURE NAME]
+# 功能规格说明 / Feature Specification: [FEATURE NAME]
 
-**Feature Branch**: `[###-feature-name]`  
-**Created**: [DATE]  
-**Status**: Draft  
-**Input**: User description: "$ARGUMENTS"
+**功能分支 / Feature Branch**: `[###-feature-name]`
+**创建日期 / Created**: [DATE]
+**状态 / Status**: Draft
+**输入 / Input**: User description: "$ARGUMENTS"
 
-## User Scenarios & Testing *(mandatory)*
+## 用户场景与测试 / User Scenarios & Testing *(mandatory)*
 
 <!--
   IMPORTANT: User stories should be PRIORITIZED as user journeys ordered by importance.
   Each user story/journey must be INDEPENDENTLY TESTABLE - meaning if you implement just ONE of them,
   you should still have a viable MVP (Minimum Viable Product) that delivers value.
-  
+
   Assign priorities (P1, P2, P3, etc.) to each story, where P1 is the most critical.
   Think of each story as a standalone slice of functionality that can be:
   - Developed independently
@@ -75,6 +75,16 @@
 - What happens when [boundary condition]?
 - How does system handle [error scenario]?
 
+*Dual-Mode Architecture Consideration (Constitution Principle I):*
+
+- Does this feature work in both native desktop app and web interface modes?
+- If platform-specific, document which mode(s) and why
+
+*Cross-Platform Consideration (Constitution Principle V):*
+
+- Are there platform-specific behaviors (Windows/Linux/macOS)?
+- Document any platform limitations upfront
+
 ## Requirements *(mandatory)*
 
 <!--
@@ -85,7 +95,7 @@
 ### Functional Requirements
 
 - **FR-001**: System MUST [specific capability, e.g., "allow users to create accounts"]
-- **FR-002**: System MUST [specific capability, e.g., "validate email addresses"]  
+- **FR-002**: System MUST [specific capability, e.g., "validate email addresses"]
 - **FR-003**: Users MUST be able to [key interaction, e.g., "reset their password"]
 - **FR-004**: System MUST [data requirement, e.g., "persist user preferences"]
 - **FR-005**: System MUST [behavior, e.g., "log all security events"]
@@ -94,6 +104,14 @@
 
 - **FR-006**: System MUST authenticate users via [NEEDS CLARIFICATION: auth method not specified - email/password, SSO, OAuth?]
 - **FR-007**: System MUST retain user data for [NEEDS CLARIFICATION: retention period not specified]
+
+*Note on dependencies (Constitution Principle IX):*
+
+- **FR-008**: Any new dependencies MUST be reviewed for AGPL-3.0 license compatibility (MIT, Apache-2.0, BSD, LGPL, GPL, MPL-2.0 are acceptable; proprietary licenses are forbidden)
+
+*Note on performance (Constitution Principle III):*
+
+- **FR-009**: If feature involves intensive computation (file tree rendering, torrent creation, real-time updates), specify performance requirements and optimization strategies (e.g., virtual scrolling, multi-threading, efficient polling)
 
 ### Key Entities *(include if feature involves data)*
 
@@ -113,3 +131,9 @@
 - **SC-002**: [Measurable metric, e.g., "System handles 1000 concurrent users without degradation"]
 - **SC-003**: [User satisfaction metric, e.g., "90% of users successfully complete primary task on first attempt"]
 - **SC-004**: [Business metric, e.g., "Reduce support tickets related to [X] by 50%"]
+
+*Constitution validation criteria:*
+
+- **SC-005**: Feature works in both native app and web interface (or document why mode-specific)
+- **SC-006**: Feature tested on Windows, Linux, and macOS (or document platform limitations)
+- **SC-007**: All documentation is bilingual (Chinese first, English second)

@@ -2,32 +2,36 @@
   ═══════════════════════════════════════════════════════════════════════════
   同步影响报告 - 宪章更新 / SYNC IMPACT REPORT - Constitution Update
   ═══════════════════════════════════════════════════════════════════════════
-  版本变更 / Version Change: 1.0.0 → 1.0.1
+  版本变更 / Version Change: 1.2.0 → 1.2.1
 
   变更摘要 / Change Summary:
-  • 转换为中英文双语格式 / Converted to bilingual (Chinese/English) format
-  • 所有内容保持中文在前，英文在后 / All content maintains Chinese-first, English-second order
-  • 结构和原则内容未改变 / Structure and principle content unchanged
+  • 新增禁止做法：禁止通过新文件替换修改现有文件 / Added forbidden practice: No file replacement via move/rename operations
+  • 明确要求使用直接编辑工具而非创建新文件后移动的方式 / Explicitly require direct editing tools instead of create-then-move approach
 
-  修改的原则 / Modified Principles: 无实质性变更 / None (format only)
+  修改的原则 / Modified Principles:
+  • 技术约束 - 禁止的做法 / Technical Constraints - Forbidden Practices (新增一条规则 / added one rule)
+
   新增章节 / Added Sections: 无 / None
   删除章节 / Removed Sections: 无 / None
 
   模板同步状态 / Template Sync Status:
-  ✅ plan-template.md - 已对齐双前端架构 / Aligned with dual-frontend structure
-  ✅ spec-template.md - 用户故事优先级已匹配 / User story prioritization matches
-  ✅ tasks-template.md - 任务组织支持增量交付 / Task organization supports incremental delivery
-  ⚠ agent-file-template.md - 需审查AI智能体指导对齐 / Review needed for AI agent guidance
-  ⚠ checklist-template.md - 需审查质量门禁对齐 / Review needed for quality gates
+  ✅ plan-template.md - 无需更新，不涉及具体实施细节 / No update needed, implementation details not involved
+  ✅ spec-template.md - 无需更新，规范层面不涉及 / No update needed, not applicable at specification level
+  ✅ tasks-template.md - 无需更新，任务描述不涉及具体工具 / No update needed, task descriptions don't specify tools
+  ✅ checklist-template.md - 无需更新，质量检查不涉及具体编辑方式 / No update needed, quality checks don't cover editing methods
+  ✅ agent-file-template.md - 建议更新，添加工作流最佳实践 / Recommended update, add workflow best practices
 
   后续待办 / Follow-up TODOs:
-  • 验证 CI/CD 工作流符合版本控制原则 (I.V) / Validate CI/CD workflows comply with versioning
-  • 记录 torrent 创建性能基准 (原则 III) / Document torrent creation performance benchmarks
-  • 建立多平台测试协议 (Windows/Linux/macOS) / Establish multi-platform testing protocol
+  • 更新 agent-file-template.md 添加文件编辑最佳实践说明 / Update agent-file-template.md with file editing best practices
+  • 审查现有 AI 工作流指令，确保符合此规则 / Review existing AI workflow instructions to ensure compliance
   ═══════════════════════════════════════════════════════════════════════════
 -->
 
 # TrguiNG 项目宪章 / TrguiNG Project Constitution
+
+**版本 / Version**: 1.2.1
+**批准日期 / Ratified**: 2026-01-05
+**最后修订 / Last Amended**: 2026-01-05
 
 ## 核心原则 / Core Principles
 
@@ -157,6 +161,56 @@ Minimum Transmission version: **v2.40**. When requiring newer versions, justify 
 
 **Rationale**: Users deploy in offline/restricted networks. Web mode must not depend on external services.
 
+### VIII. 双语文档要求 / Bilingual Documentation Requirement
+
+**中文：** 所有项目文档必须同时提供中文和英文版本：
+
+- **规范文档**：spec.md、plan.md、tasks.md 等必须双语
+- **用户文档**：README、Wiki、使用指南必须双语
+- **代码注释**：关键模块和复杂逻辑建议双语注释
+- **提交信息**：可仅用英文，但重要变更建议附中文说明
+- **格式规范**：中文在前，英文在后，使用清晰的分隔标识
+
+**理由**：项目服务于中英文用户群体，双语文档确保所有用户都能理解项目内容，降低语言障碍，促进国际化协作。
+
+**English:** All project documentation MUST be provided in both Chinese and English:
+
+- **Specification docs**: spec.md, plan.md, tasks.md etc. MUST be bilingual
+- **User docs**: README, Wiki, user guides MUST be bilingual
+- **Code comments**: Bilingual comments recommended for key modules and complex logic
+- **Commit messages**: English-only acceptable, but bilingual recommended for significant changes
+- **Format standard**: Chinese first, English second, with clear separation markers
+
+**Rationale**: The project serves both Chinese and English user communities. Bilingual documentation ensures all users can understand project content, reduces language barriers, and promotes international collaboration.
+
+### IX. 开源许可证合规性与安全性 / Open Source License Compliance and Security
+
+**中文：** 项目必须遵守 AGPL-3.0 许可证要求，并确保所有依赖项的许可证兼容性：
+
+- **主许可证**：TrguiNG 采用 AGPL-3.0 许可证（GNU Affero General Public License v3.0）
+- **依赖项审查**：所有新依赖项必须经过许可证兼容性审查
+- **许可证传导性**：避免引入与 AGPL-3.0 不兼容的许可证（如某些专有许可证）
+- **兼容许可证**：可接受的依赖项许可证包括：MIT、Apache-2.0、BSD、LGPL、GPL、MPL-2.0
+- **禁止许可证**：不得使用具有传导性冲突的许可证或专有许可证
+- **许可证文档**：在 README 和文档中清晰声明项目许可证
+- **自动化检查**：建议在 CI/CD 中集成许可证检查工具（如 cargo-license、license-checker）
+- **第三方代码**：复制或修改第三方代码时必须保留原始版权声明和许可证
+
+**理由**：AGPL-3.0 是一个强传导性（copyleft）许可证，要求衍生作品和通过网络提供服务的修改版本也必须开源。许可证不兼容可能导致法律风险，影响项目的合法分发和使用。确保依赖项兼容性可保护项目及其用户。
+
+**English:** The project MUST comply with AGPL-3.0 license requirements and ensure license compatibility for all dependencies:
+
+- **Primary License**: TrguiNG is licensed under AGPL-3.0 (GNU Affero General Public License v3.0)
+- **Dependency Review**: All new dependencies MUST undergo license compatibility review
+- **License Transitivity**: Avoid introducing licenses incompatible with AGPL-3.0 (e.g., certain proprietary licenses)
+- **Compatible Licenses**: Acceptable dependency licenses include: MIT, Apache-2.0, BSD, LGPL, GPL, MPL-2.0
+- **Prohibited Licenses**: Dependencies with conflicting copyleft terms or proprietary licenses are forbidden
+- **License Documentation**: Clearly declare project license in README and documentation
+- **Automated Checking**: Recommend integrating license checking tools in CI/CD (e.g., cargo-license, license-checker)
+- **Third-Party Code**: When copying or modifying third-party code, MUST retain original copyright notices and licenses
+
+**Rationale**: AGPL-3.0 is a strong copyleft license requiring derivative works and modified versions served over a network to also be open source. License incompatibility can lead to legal risks affecting legal distribution and use of the project. Ensuring dependency compatibility protects the project and its users.
+
 ## 技术约束 / Technical Constraints
 
 ### 必需的技术栈 / Required Technology Stack
@@ -189,6 +243,7 @@ Minimum Transmission version: **v2.40**. When requiring newer versions, justify 
 - **禁止内联样式**：使用 CSS 模块或 Mantine 的样式系统
 - **Web 模式中禁止浏览器特定 API**：必须在 Transmission 的嵌入式上下文中工作
 - **禁止硬编码服务器 URL**：所有端点必须可配置
+- **禁止通过新文件替换修改现有文件**：不得使用创建新文件后移动/重命名的方式修改现有文件（如 `Move-Item -Force`、`mv -f`、`cp && rm` 等）；必须使用直接编辑工具（如 `replace_string_in_file`、编辑器内修改、`sed -i` 等）
 
 **English:**
 
@@ -196,6 +251,7 @@ Minimum Transmission version: **v2.40**. When requiring newer versions, justify 
 - **No inline styles**: Use CSS modules or Mantine's styling system
 - **No browser-specific APIs in web mode**: Must work in Transmission's embedded context
 - **No hardcoded server URLs**: All endpoints configurable
+- **No file replacement via move/rename operations**: Do not modify existing files by creating new files and then moving/renaming them (e.g., `Move-Item -Force`, `mv -f`, `cp && rm`); MUST use direct editing tools (e.g., `replace_string_in_file`, in-editor modifications, `sed -i`)
 
 ## 开发流程 / Development Workflow
 
@@ -280,6 +336,8 @@ Minimum Transmission version: **v2.40**. When requiring newer versions, justify 
 - 性能考虑（原则 III）/ Performance considerations (Principle III)
 - 跨平台兼容性（原则 V）/ Cross-platform compatibility (Principle V)
 - 增量交付计划（原则 VI）/ Incremental delivery plan (Principle VI)
+- 双语文档要求（原则 VIII）/ Bilingual documentation requirement (Principle VIII)
+- 开源许可证合规性（原则 IX）/ Open source license compliance (Principle IX)
 
 违规需要明确的正当理由及缓解计划或宪章修订。/ Violations require explicit justification with mitigation plan or constitution amendment.
 
@@ -291,4 +349,4 @@ Minimum Transmission version: **v2.40**. When requiring newer versions, justify 
 - **次版本 / MINOR**：新原则、扩展章节、新质量门禁 / New principles, expanded sections, new quality gates
 - **补丁版本 / PATCH**：澄清、错别字修复、格式调整 / Clarifications, typo fixes, formatting
 
-**版本 / Version**: 1.0.1 | **批准日期 / Ratified**: 2026-01-05 | **最后修订 / Last Amended**: 2026-01-05
+**版本 / Version**: 1.2.0 | **批准日期 / Ratified**: 2026-01-05 | **最后修订 / Last Amended**: 2026-01-05
