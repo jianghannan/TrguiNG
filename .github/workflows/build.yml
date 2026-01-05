@@ -11,7 +11,49 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  # 版本一致性检查 / Version consistency check
+  version-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Check version consistency (package.json vs Cargo.toml)
+        run: |
+          PKG_VERSION=$(node -p "require('./package.json').version")
+          CARGO_VERSION=$(grep -m1 '^version' src-tauri/Cargo.toml | sed 's/.*"\(.*\)".*/\1/')
+          echo "package.json version: $PKG_VERSION"
+          echo "Cargo.toml version: $CARGO_VERSION"
+          if [ "$PKG_VERSION" != "$CARGO_VERSION" ]; then
+            echo "❌ Version mismatch! package.json ($PKG_VERSION) != Cargo.toml ($CARGO_VERSION)"
+            exit 1
+          fi
+          echo "✅ Versions match: $PKG_VERSION"
+
+  # 质量门禁 / Quality gates (lint + type check)
+  quality-gates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'npm'
+      - run: npm ci
+      - name: TypeScript type check
+        run: npx tsc --noEmit
+      - name: ESLint check
+        run: npx eslint src/
+      - name: Rust clippy & fmt check
+        run: |
+          mkdir -p dist
+          touch src-tauri/dbip.mmdb
+          sudo apt-get update
+          sudo apt-get install -y libgtk-3-dev libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf libasound2-dev libfontconfig-dev
+          cd src-tauri
+          cargo fmt -- --check
+          cargo clippy -- -D warnings
+
   download-dbip:
+    needs: [version-check, quality-gates]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
