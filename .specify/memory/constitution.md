@@ -2,11 +2,10 @@
   ═══════════════════════════════════════════════════════════════════════════
   同步影响报告 - 宪章更新 / SYNC IMPACT REPORT - Constitution Update
   ═══════════════════════════════════════════════════════════════════════════
-  版本变更 / Version Change: 1.2.0 → 1.2.1
+  版本变更 / Version Change: 1.2.2 → 1.3.0
 
   变更摘要 / Change Summary:
-  • 新增禁止做法：禁止通过新文件替换修改现有文件 / Added forbidden practice: No file replacement via move/rename operations
-  • 明确要求使用直接编辑工具而非创建新文件后移动的方式 / Explicitly require direct editing tools instead of create-then-move approach
+  • 新增禁止做法：禁止创建分支，所有操作必须在当前分支进行 / Added forbidden practice: No branch creation, all operations must be on current branch
 
   修改的原则 / Modified Principles:
   • 技术约束 - 禁止的做法 / Technical Constraints - Forbidden Practices (新增一条规则 / added one rule)
@@ -15,23 +14,21 @@
   删除章节 / Removed Sections: 无 / None
 
   模板同步状态 / Template Sync Status:
-  ✅ plan-template.md - 无需更新，不涉及具体实施细节 / No update needed, implementation details not involved
-  ✅ spec-template.md - 无需更新，规范层面不涉及 / No update needed, not applicable at specification level
-  ✅ tasks-template.md - 无需更新，任务描述不涉及具体工具 / No update needed, task descriptions don't specify tools
-  ✅ checklist-template.md - 无需更新，质量检查不涉及具体编辑方式 / No update needed, quality checks don't cover editing methods
-  ✅ agent-file-template.md - 建议更新，添加工作流最佳实践 / Recommended update, add workflow best practices
+  ✅ plan-template.md - 无需更新 / No update needed
+  ✅ spec-template.md - 无需更新 / No update needed
+  ✅ tasks-template.md - 无需更新 / No update needed
+  ✅ agent-file-template.md - 无需更新 / No update needed
 
   后续待办 / Follow-up TODOs:
-  • 更新 agent-file-template.md 添加文件编辑最佳实践说明 / Update agent-file-template.md with file editing best practices
-  • 审查现有 AI 工作流指令，确保符合此规则 / Review existing AI workflow instructions to ensure compliance
+  • 无 / None
   ═══════════════════════════════════════════════════════════════════════════
 -->
 
 # TrguiNG 项目宪章 / TrguiNG Project Constitution
 
-**版本 / Version**: 1.2.1
+**版本 / Version**: 1.3.0
 **批准日期 / Ratified**: 2026-01-05
-**最后修订 / Last Amended**: 2026-01-05
+**最后修订 / Last Amended**: 2026-01-07
 
 ## 核心原则 / Core Principles
 
@@ -244,6 +241,7 @@ Minimum Transmission version: **v2.40**. When requiring newer versions, justify 
 - **Web 模式中禁止浏览器特定 API**：必须在 Transmission 的嵌入式上下文中工作
 - **禁止硬编码服务器 URL**：所有端点必须可配置
 - **禁止通过新文件替换修改现有文件**：不得使用创建新文件后移动/重命名的方式修改现有文件（如 `Move-Item -Force`、`mv -f`、`cp && rm` 等）；必须使用直接编辑工具（如 `replace_string_in_file`、编辑器内修改、`sed -i` 等）
+- **禁止创建分支**：所有操作必须在当前分支进行，不得创建新分支
 
 **English:**
 
@@ -252,6 +250,7 @@ Minimum Transmission version: **v2.40**. When requiring newer versions, justify 
 - **No browser-specific APIs in web mode**: Must work in Transmission's embedded context
 - **No hardcoded server URLs**: All endpoints configurable
 - **No file replacement via move/rename operations**: Do not modify existing files by creating new files and then moving/renaming them (e.g., `Move-Item -Force`, `mv -f`, `cp && rm`); MUST use direct editing tools (e.g., `replace_string_in_file`, in-editor modifications, `sed -i`)
+- **No branch creation**: All operations MUST be performed on the current branch; creating new branches is forbidden
 
 ## 开发流程 / Development Workflow
 
@@ -349,4 +348,4 @@ Minimum Transmission version: **v2.40**. When requiring newer versions, justify 
 - **次版本 / MINOR**：新原则、扩展章节、新质量门禁 / New principles, expanded sections, new quality gates
 - **补丁版本 / PATCH**：澄清、错别字修复、格式调整 / Clarifications, typo fixes, formatting
 
-**版本 / Version**: 1.2.0 | **批准日期 / Ratified**: 2026-01-05 | **最后修订 / Last Amended**: 2026-01-05
+**版本 / Version**: 1.3.0 | **批准日期 / Ratified**: 2026-01-05 | **最后修订 / Last Amended**: 2026-01-07

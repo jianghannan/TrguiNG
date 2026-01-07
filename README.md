@@ -1,4 +1,31 @@
 # TrguiNG
+
+> **声明 / Disclaimer**
+>
+> 本仓库是 [OpenScopeProject/TrguiNG](https://github.com/OpenScopeProject/TrguiNG) 的非官方分支版本，主要用于添加多语言支持。
+>
+> This repository is a fork of [OpenScopeProject/TrguiNG](https://github.com/OpenScopeProject/TrguiNG), primarily for adding multi-language support and localization improvements.
+
+## 本分支特点 / Fork Features
+
+相比上游仓库，本分支增加了以下功能：
+
+Compared to upstream, this fork adds:
+
+- 🌐 **完整的国际化支持 / Full i18n Support**
+  - 简体中文 (zh-Hans)
+  - 繁体中文 (zh-Hant)
+  - 英文 (en)
+- 🔤 **界面完全本地化 / Fully Localized UI**
+  - 所有菜单、按钮、状态信息均已翻译
+  - 节点状态、Tracker 状态等动态内容支持翻译
+  - 国家名称根据系统语言自动显示
+- 📚 **双语文档 / Bilingual Documentation**
+  - 规范文档中英双语
+  - 术语表保证翻译一致性
+
+---
+
 **Remote GUI for Transmission torrent daemon**
 
 ![GitHub release](https://img.shields.io/github/v/release/OpenScopeProject/TrguiNG)
@@ -27,7 +54,6 @@ Some differentiating features:
 * Powerful torrent filtering options
 * Latest transmission features support: labels, bandwidth groups, sequential download
 * Dark and white theme
-* **多语言支持 / Multi-language support**: English and 简体中文 (Simplified Chinese), with automatic system language detection
 
 Planned:
 
@@ -47,13 +73,16 @@ Pick the latest successful run and scroll down to the artifacts section.
 ## Compiling
 
 Prerequisites:
+
 - [Node.js 16](https://nodejs.org/) or later
 - [rust 1.77](https://www.rust-lang.org/) or later
 - Geoip lookup database in mmdb format, put it in `src-tauri`
-   ```
-   wget -nv -O src-tauri/dbip.mmdb "https://github.com/openscopeproject/TrguiNG/releases/latest/download/dbip.mmdb"
-   ```
-   You can get latest db from [db-ip.com](https://db-ip.com/db/download/ip-to-country-lite).
+
+  ```
+  wget -nv -O src-tauri/dbip.mmdb "https://github.com/openscopeproject/TrguiNG/releases/latest/download/dbip.mmdb"
+  ```
+
+  You can get latest db from [db-ip.com](https://db-ip.com/db/download/ip-to-country-lite).
 
 To compile simply run
 
@@ -86,6 +115,7 @@ Transmission supports custom web interfaces, all you have to do is run the daemo
 over it's `.../transmission/web/` endpoint.
 
 Example steps for debian:
+
 1. Download latest `trguing-web-xxxx.zip` zip from [releases](https://github.com/openscopeproject/TrguiNG/releases)
    page.
 2. Unpack it anywhere, make sure that the user transmission runs under (by default `debian-transmission`)
@@ -99,4 +129,5 @@ Example steps for debian:
    and restart the service `sudo systemctl restart transmission-daemon`
 
 ## License
+
 Project is distributed under GNU Affero General Public License v3, see `LICENSE.txt` for details.
