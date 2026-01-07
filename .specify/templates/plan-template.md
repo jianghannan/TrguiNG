@@ -3,8 +3,8 @@
 **分支 / Branch**: `[###-feature-name]` | **日期 / Date**: [DATE] | **规格 / Spec**: [link]
 **输入 / Input**: Feature specification from `/specs/[###-feature-name]/spec.md`
 
-**注意 / Note**: 此模板由 `/speckit.plan` 命令填充。执行工作流请参见 `.specify/templates/commands/plan.md`。
-This template is filled in by the `/speckit.plan` command. See `.specify/templates/commands/plan.md` for the execution workflow.
+**注意 / Note**: 此模板由 `/speckit.plan` 命令填充。执行工作流请参见 `.specify/scripts/powershell/setup-plan.ps1`。
+This template is filled in by the `/speckit.plan` command. See `.specify/scripts/powershell/setup-plan.ps1` for the execution workflow.
 
 ## 摘要 / Summary
 
