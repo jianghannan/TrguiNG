@@ -13,16 +13,63 @@
 Compared to upstream, this fork adds:
 
 - 🌐 **完整的国际化支持 / Full i18n Support**
-  - 简体中文 (zh-Hans)
-  - 繁体中文 (zh-Hant)
-  - 英文 (en)
+  - 简体中文 (zh-Hans) / Simplified Chinese
+  - 繁体中文 (zh-Hant) / Traditional Chinese
+  - 英文 (en) / English
 - 🔤 **界面完全本地化 / Fully Localized UI**
-  - 所有菜单、按钮、状态信息均已翻译
-  - 节点状态、Tracker 状态等动态内容支持翻译
-  - 国家名称根据系统语言自动显示
+  - 所有菜单、按钮、状态信息均已翻译 / All menus, buttons, and status messages translated
+  - 节点状态、Tracker 状态等动态内容支持翻译 / Dynamic content like peer status, tracker status translated
+  - 国家名称根据系统语言自动显示 / Country names auto-localized via system language
 - 📚 **双语文档 / Bilingual Documentation**
-  - 规范文档中英双语
-  - 术语表保证翻译一致性
+  - 规范文档中英双语 / Spec documents in Chinese and English
+  - 术语表保证翻译一致性 / Glossaries ensure translation consistency
+- 🛠️ **Speckit 规范驱动开发 / Speckit Spec-Driven Development**
+  - 项目宪章定义核心原则 / Project constitution defines core principles
+  - 功能规范模板确保一致性 / Feature spec templates ensure consistency
+  - 支持 `/speckit.spec`、`/speckit.plan`、`/speckit.tasks` 工作流 / Supports speckit workflow commands
+
+## 国际化开发指南 / i18n Development Guide
+
+本项目使用 [i18next](https://www.i18next.com/) 进行国际化。/ This project uses i18next for internationalization.
+
+### 目录结构 / Directory Structure
+
+```
+src/i18n/
+├── index.ts              # i18n 初始化 / initialization
+├── languages.ts          # 语言资源 / language resources
+├── locales/
+│   ├── en.json           # English
+│   ├── zh-Hans.json      # 简体中文
+│   └── zh-Hant.json      # 繁体中文
+├── glossary.zh-Hans.md   # 简体术语表 / Simplified glossary
+└── glossary.zh-Hant.md   # 繁体术语表 / Traditional glossary
+```
+
+### 使用方法 / Usage
+
+```tsx
+import { useTranslation } from "i18n";
+
+function MyComponent() {
+  const { t } = useTranslation();
+  return <div>{t("section.key")}</div>;
+}
+```
+
+### 添加新语言 / Adding New Language
+
+1. 创建 `src/i18n/locales/{lang}.json` / Create locale file
+2. 在 `languages.ts` 中注册 / Register in languages.ts
+3. 翻译所有键值 / Translate all keys
+
+### 翻译覆盖率检查脚本使用 / Using Translation Coverage Check Script
+
+```bash
+node scripts/check-i18n-coverage.js
+```
+
+## 以下内容为原始上游仓库 README.md 文档 / The following is the original README.md from upstream
 
 ---
 
